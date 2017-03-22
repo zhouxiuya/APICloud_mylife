@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>首页</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
+    <style>
+         .one{
+            margin-left: 25px;
+            font-weight: bold;
+        }
+        img{
+        	width:100px;
+        	height:100px;
+        }
+        table{
+        	margin-left:20px;
+        }
+     
+    </style>
+</head>
+<body>
+	<table>
+		<tr>
+			<td><img src="../image/11.png"><span class="one">相机</span></td>
+			<td><img src="../image/12.png"><span class="one">音乐</span></td>
+			<td><img src="../image/13.png"><span class="one">视频</span></td>
+		</tr>
+		<tr>
+			<td><img src="../image/14.png"><span class="one">往日光影</span></td>
+			<td><img src="../image/15.png"><span class="one">经济咨询</span></td>
+			<td><img src="../image/16.png"><span class="one">日常记录</span></td>
+		</tr>
+		<tr>
+			<td><img src="../image/17.png"><span class="one">投资理财</span></td>
+			<td><img src="../image/18.png"><span class="one">精美礼品</span></td>
+			<td><img src="../image/19.png"><span class="one">警告警示</span></td>
+		</tr>
+	</table>
+	
+	
+</body>
+
+<script type="text/javascript" src="../script/api.js"></script>	
+<script type="text/javascript">
+		apiready=function(){
+			var UIScrollPicture = api.require('UIScrollPicture');
+			UIScrollPicture.open({
+    		rect: {
+        		x: 0,
+        		y: 0,
+        		w: api.winWidth,
+        		h: api.winHeight / 3
+    		},
+    		data: {
+        		paths: [
+            		'widget://res/img/slide1.jpg',
+            		'widget://res/img/slide2.jpg',
+            		'widget://res/img/slide3.jpg',
+            		'widget://res/img/slide4.jpg'
+        		],
+//      		captions: ['apicloud', 'apicloud', 'apicloud', 'apicloud']
+    		},
+    		styles: {
+//      		caption: {
+//          		height: 35,
+//          		color: '#E0FFFF',
+//          		size: 13,
+//          		bgColor: '#696969',
+//          		position: 'bottom'
+//      		},
+        		indicator: {
+            		align: 'center',
+            		color: '#FFFFFF',
+            		activeColor: '#DA70D6'
+        		}
+    		},
+    		placeholderImg: 'widget://res/img/slide1.jpg',
+    		contentMode: 'scaleToFill',
+    		interval: 3,
+    		fixedOn: api.frameName,
+    		loop: true,
+    		fixed: false
+		}, function(ret, err) {
+    		if (ret) {
+//      		alert(JSON.stringify(ret));
+    		} else {
+//      		alert(JSON.stringify(err));
+    		}
+		});
+		var marginTop = api.winHeight / 3;
+		var table = $api.dom("table");
+		marginTop = marginTop+20;
+		$api.css(table,"margin-top:"+marginTop+"px");
+		}
+      	
+    </script>
+</html>
